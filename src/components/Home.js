@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import Films from './Films.js'
 
 class Home extends React.Component {
   constructor(){
@@ -14,47 +15,59 @@ class Home extends React.Component {
 }
 
     componentDidMount(){
-      axios.get('https://swapi.co/api/films')
-      .then( response =>{
-        console.log(response)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+      // this.getFilms();
+      this.getPeople();
+      this.getPlanets();
+      this.getSpecies();
+      this.getVehicles();
+}
 
 
-    axios.get('https://swapi.co/api/people')
-    .then( response =>{
-      console.log(response)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-
-
-  axios.get('https://swapi.co/api/planets')
-  .then( response =>{
-    console.log(response)
+getPeople = () => {
+axios.get('https://swapi.co/api/people')
+.then( response =>{
+  this.setState({
+    people: response.data.results
   })
-  .catch(err => {
-    console.log(err)
-  })
+})
+.catch(err => {
+  console.log(err)
+})
+}
 
+getPlanets = () => {
+axios.get('https://swapi.co/api/planets')
+.then( response =>{
+this.setState({
+  planets: response.data.result
+})
+})
+.catch(err => {
+console.log(err)
+})
+}
+
+getSpecies = () => {
 axios.get('https://swapi.co/api/species')
 .then( response =>{
-  console.log(response)
+this.setState({
+  species: response.data.result
+})
 })
 .catch(err => {
-  console.log(err)
+console.log(err)
 })
+}
 
-
+getVehicles = () => {
 axios.get('https://swapi.co/api/vehicles')
 .then( response =>{
-  console.log(response)
+this.setState({
+  vehicles: response.data.result
+})
 })
 .catch(err => {
-  console.log(err)
+console.log(err)
 })
 }
 
@@ -63,7 +76,7 @@ axios.get('https://swapi.co/api/vehicles')
     render(){
       return(
         <>
-        Home
+        Welcome to Star Wars Fan Page
         </>
       )
     }
