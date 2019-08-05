@@ -49,11 +49,12 @@ render(){
             <option key={film.id} value={film.title}>{film.title}</option>
             )
         })
-      </selected>
+        }
+      </select>
+      
     </>
   )
- }
 }
-
+}
 
 export default Films
