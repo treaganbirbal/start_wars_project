@@ -6,6 +6,7 @@ import {Route, Switch} from 'react-router-dom';
 import Navbar from './components/Nav.js'
 import Home from './components/Home.js'
 import Films from './components/Films.js'
+import People from './components/People.js'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Switch>
+        <Route path='/people' component={People}/>
         <Route path='/films' component={Films}/>
         <Route exact path='/' component={Home}/>
       </Switch>
