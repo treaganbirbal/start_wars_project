@@ -26,6 +26,12 @@ class People extends React.Component {
         })
         }
 
+    handleCharDisplay = (event) => {
+        let splittedUrl = `https://swapi.co/api/people/${this.state.people}`.split('/').pop()
+        console.log(splittedUrl)
+        this.props.history.push(`https://swapi.co/api/people/${splittedUrl}`)
+        }
+
     render(){
         const { people } = this.state;
         return(
@@ -33,7 +39,7 @@ class People extends React.Component {
                {
                    people.map(person =>{
                        return (
-                           <li key={person.name}><a href='#'> {person.name}</a></li>
+                           <li onClick={this.handleCharDisplay} key={person.name}><a href='#'> {person.name}</a></li>
                        )
                    })
                }
