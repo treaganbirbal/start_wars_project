@@ -20,6 +20,7 @@ class People extends React.Component {
           this.setState({
             people: response.data.results
           })
+        //   debugger;
         })
         .catch(err => {
           console.log(err)
@@ -27,8 +28,9 @@ class People extends React.Component {
         }
 
     handleCharDisplay = (event) => {
-        let splittedUrl = `https://swapi.co/api/people/${this.state.people}`.split('/').pop()
-        console.log(splittedUrl)
+        let splitted = `https://swapi.co/api/people/${this.state.people}`.split('/')
+        let splittedUrl = splitted[5]
+        console.log("spiited", splittedUrl)
         this.props.history.push(`https://swapi.co/api/people/${splittedUrl}`)
         }
 
@@ -39,7 +41,10 @@ class People extends React.Component {
                {
                    people.map(person =>{
                        return (
-                           <li onClick={this.handleCharDisplay} key={person.name}><a href='#'> {person.name}</a></li>
+                           <>
+                            <li onClick={this.handleCharDisplay} key={person.name}><a href='#'> {person.name}</a></li>
+                            <a href={person.url}>{person.url} </a> 
+                           </>
                        )
                    })
                }
