@@ -30,7 +30,13 @@ class People extends React.Component {
         const { people } = this.state;
         return(
             <>
-                <h1>{people[1].name}</h1>
+               {
+                   people.map(person =>{
+                       return (
+                           <li key={person.name}><a href='#'> {person.name}</a></li>
+                       )
+                   })
+               }
             </>
         )
     }
