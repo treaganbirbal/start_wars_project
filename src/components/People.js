@@ -1,9 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import { Route, Link, Redirect } from 'react-router-dom';
+
+import SinglePerson from './singlePerson';
 
 class People extends React.Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             people: []
         }
@@ -20,7 +23,6 @@ class People extends React.Component {
           this.setState({
             people: response.data.results
           })
-        //   debugger;
         })
         .catch(err => {
           console.log(err)
@@ -28,23 +30,24 @@ class People extends React.Component {
         }
 
     handleCharDisplay = (event) => {
-        let splitted = `https://swapi.co/api/people/${this.state.people}`.split('/')
-        let splittedUrl = splitted[5]
-        console.log("spiited", splittedUrl)
-        this.props.history.push(`https://swapi.co/api/people/${splittedUrl}`)
-        }
+        console.log(event.target.value)
+    }
 
     render(){
         const { people } = this.state;
+        let allChars = people.map(person => {
+            return person.name
+        })
+        console.log(people)
         return(
             <>
                {
-                   people.map(person =>{
+                   allChars.map((char, i) => {
                        return (
-                           <>
-                            <li onClick={this.handleCharDisplay} key={person.name}><a href='#'> {person.name}</a></li>
-                            <a href={person.url}>{person.url} </a> 
-                           </>
+                           <div>
+                               {char}{i}
+                               <Link to={`/people/${i}`} component={char}><li onClick={this.handleCharDisplay} value={i}>{char}</li></Link>
+                            </div>
                        )
                    })
                }

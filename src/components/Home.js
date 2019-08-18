@@ -16,24 +16,13 @@ class Home extends React.Component {
 
     componentDidMount(){
       // this.getFilms();
-      this.getPeople();
+      // this.getPeople();
       this.getPlanets();
       this.getSpecies();
       this.getVehicles();
 }
 
 
-getPeople = () => {
-axios.get('https://swapi.co/api/people')
-.then( response =>{
-  this.setState({
-    people: response.data.results
-  })
-})
-.catch(err => {
-  console.log(err)
-})
-}
 
 getPlanets = () => {
 axios.get('https://swapi.co/api/planets')
