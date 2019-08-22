@@ -29,8 +29,9 @@ class People extends React.Component {
         })
         }
 
-    handleCharDisplay = (event) => {
-        console.log(event.target.value)
+    handleClick = (event)  => {
+        console.log("id:", event.target.id)
+        this.props.history.push(`/people/` + event.target.id)
     }
 
     render(){
@@ -38,19 +39,21 @@ class People extends React.Component {
         let allChars = people.map(person => {
             return person.name
         })
-        console.log(people)
+        // console.log(people)
         return(
             <>
                {
                    allChars.map((char, i) => {
+                       {/* console.log(allChars) */}
                        return (
                            <div>
-                               {char}{i}
-                               <Link to={`/people/${i}`} component={char}><li onClick={this.handleCharDisplay} value={i}>{char}</li></Link>
+                               {/* {char}{i} */}
+                               <ul onClick={this.handleClick} id={++i} value={i++}>{char}</ul>
                             </div>
                        )
                    })
                }
+               
             </>
         )
     }

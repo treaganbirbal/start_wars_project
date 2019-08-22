@@ -15,8 +15,8 @@ function App() {
     <div className="App">
       <Navbar />
       <Switch>
-        <Route path='/people' component={People}/>
-        <Route exact path='/people/:id' component={SinglePerson}/>
+        <Route exact path='/people' component={People}/>
+        <Route  path='/people/:id' component={SinglePerson}/>
         <Route path='/films' component={Films}/>
         <Route exact path='/' component={Home}/>
       </Switch>
