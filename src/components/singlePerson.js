@@ -18,8 +18,15 @@ class SinglePerson extends React.Component{
         })
     }
     render(){
+        const { movie } = this.state
     return (
-        <h1>hellow</h1>
+        <>
+          <card>
+            <p>{movie.name}</p>
+            <p>{movie.gender}</p>
+            <p>{movie.hair_color}</p>
+          </card>
+        </>
     )
     }
 }
