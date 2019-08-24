@@ -24,7 +24,7 @@ class Planets extends Component {
         return(
             <>
                 {planets.map(planet => {
-                   return <h2>{planet.name}</h2>
+                   return <p>{planet.name}</p>
                 })}
                
             </>
