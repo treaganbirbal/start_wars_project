@@ -9,6 +9,7 @@ import Films from './components/Films.js'
 import People from './components/People.js'
 import SinglePerson from './components/singlePerson.js'
 import Planets from './components/Planets.js'
+import SinglePlanet from './components/SinglePlanet.js'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route path='/planets' component={Planets}/>
+        <Route exact path="/planets/:id" component={SinglePlanet}/>
         <Route exact path='/people' component={People}/>
         <Route  path='/people/:id' component={SinglePerson}/>
         <Route path='/films' component={Films}/>
