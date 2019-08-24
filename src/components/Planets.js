@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import {Link, Route} from 'react-router-dom'
 import axios from 'axios';
 
 class Planets extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         
         this.state = {
             planets: [],
@@ -20,7 +21,8 @@ class Planets extends Component {
     }
 
     handleClick = (event) => {
-        console.log(event.target.id)
+        this.props.history.push('/planets/' + event.target.id)
+        console.log(this.props.history)
     }
 
     render(){
@@ -28,7 +30,7 @@ class Planets extends Component {
         return(
             <>
                 {planets.map((planet, id) => {
-                   return <p onClick={this.handleClick} id={++id}>{planet.name}</p>
+                   return <p onClick={this.handleClick} id={++id} value={++id}>{planet.name}</p>
                 })}
                
             </>
