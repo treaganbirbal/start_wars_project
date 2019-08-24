@@ -65,7 +65,8 @@ console.log(err)
     render(){
       return(
         <>
-        Welcome to Star Wars Fan Page
+        <img src="https://wallpaperplay.com/walls/full/2/9/2/124128.jpg" id='banner-img' alt=""/>
+        <h1 className='welcome'>Welcome to Star Wars Fan Page</h1>
         </>
       )
     }

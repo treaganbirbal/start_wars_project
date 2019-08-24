@@ -42,18 +42,18 @@ class People extends React.Component {
         // console.log(people)
         return(
             <>
-               {
+            <div className='people-img'>
+                <div className='overlay'></div>
+            </div>
+            <div className='people-list'>
+               {   
                    allChars.map((char, i) => {
-                       {/* console.log(allChars) */}
                        return (
-                           <div>
-                               {/* {char}{i} */}
-                               <ul onClick={this.handleClick} id={++i} value={i++}>{char}</ul>
-                            </div>
+                                                          <li className='person-item'onClick={this.handleClick} id={++i} value={i++}>{char}</li>
                        )
                    })
                }
-               
+               </div>
             </>
         )
     }

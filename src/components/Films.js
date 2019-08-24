@@ -43,7 +43,10 @@ render(){
 
   return (
     <>
-      <h1>Films</h1>
+    <div className='main-div'>
+      <div className='img-bg'>
+      <div className='overlay'>
+      <h1 className='films-title'>Films</h1>
       <select onChange={this.handleChange}>
         <option selected={true} disabled={true}>Movies</option>
         {
@@ -65,7 +68,9 @@ render(){
           null;
         }) 
       }
-    
+      </div>
+     </div>
+    </div>
     </>
   )
 }
