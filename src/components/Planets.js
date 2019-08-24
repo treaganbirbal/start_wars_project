@@ -19,12 +19,16 @@ class Planets extends Component {
         .catch(err => console.log(err))
     }
 
+    handleClick = (event) => {
+        console.log(event.target.id)
+    }
+
     render(){
         const { planets } = this.state;
         return(
             <>
-                {planets.map(planet => {
-                   return <p>{planet.name}</p>
+                {planets.map((planet, id) => {
+                   return <p onClick={this.handleClick} id={++id}>{planet.name}</p>
                 })}
                
             </>
